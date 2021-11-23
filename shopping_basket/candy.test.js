@@ -1,4 +1,4 @@
-const Candy = require("./candy.js")
+const Candy = require("./candy.js");
 
 describe("candy", () => {
   it('names the new candy', () => {
