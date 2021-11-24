@@ -1,9 +1,10 @@
-const ShoppingBasket = require('./shoppingbasket.js');
-const Candy = require('./candy.js');
+const ShoppingBasket = require('./shoppingBasket.js');
 
 describe("shoppingBasket", () => {
-  const shoppingBasket = new ShoppingBasket
-  const candy = new Candy('Mars', 4.99)
+  const shoppingBasket = new ShoppingBasket;
+  const name = { name: () => 'Mars' }
+  const price = { price: () => 4.99 } 
+  const candyDouble = { name:'Mars', price: 4.99 }
 
   it('creates a new shopping basket', () => {
     expect(shoppingBasket.basket).toEqual([])
@@ -14,12 +15,11 @@ describe("shoppingBasket", () => {
   });
 
   it("adds a new candy to the shopping basket", () => {
-    shoppingBasket.addItem(candy)
+    shoppingBasket.addItem(candyDouble)
     expect(shoppingBasket.basket).toEqual(['Mars'])
   });
 
   it("adds a new candy's value to the shopping basket total", () => {
-   
     expect(shoppingBasket.totalPrice).toBe(4.99)
   });
 });
